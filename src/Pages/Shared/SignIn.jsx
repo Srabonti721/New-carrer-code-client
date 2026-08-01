@@ -2,14 +2,14 @@ import React, { use } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 
 const SignIn = () => {
-const {createUser} = use(AuthContext)
+const {signInUser} = use(AuthContext)
     const handleSignIn = e =>{
         e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    createUser(email, password)
+    signInUser(email, password)
     .then(result=>{
       console.log(result.user);
       
