@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SignIn = () => {
 const {signInUser} = use(AuthContext)
@@ -8,11 +9,19 @@ const {signInUser} = use(AuthContext)
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+// sign in user
     signInUser(email, password)
     .then(result=>{
-      console.log(result.user);
-      
+      // console.log(result.user);
+            if(result.user){
+              Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "sign in successfully",
+  showConfirmButton: false,
+  timer: 1500
+})
+}
     })
     .catch(error=>{
       console.log(error);
