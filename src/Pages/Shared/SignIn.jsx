@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from './SocialLogin';
 
 const SignIn = () => {
 const {signInUser} = use(AuthContext)
@@ -45,6 +46,7 @@ const {signInUser} = use(AuthContext)
           <div><a className="link link-hover">Forgot password?</a></div>
           <button className="btn btn-neutral mt-4">Sign in</button>
         </form>
+        <SocialLogin/>
       </div>
     </div>
   </div>

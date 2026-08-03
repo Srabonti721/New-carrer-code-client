@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import { AuthContext } from '../context/AuthProvider'
+import SocialLogin from './Shared/SocialLogin';
 // import registerLottie  from '../assets/lotties/Register (1).json';
 // import Lottie from 'lottie-react';
 
@@ -41,6 +42,7 @@ const Register = () => {
           <div><a className="link link-hover">Forgot password?</a></div>
           <button className="btn btn-neutral mt-4">Register</button>
         </form>
+        <SocialLogin/>
       </div>
     </div>
   </div>
