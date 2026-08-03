@@ -4,10 +4,10 @@ import { CiCalendarDate } from 'react-icons/ci';
 import { FaIndustry, FaLocationDot } from 'react-icons/fa6';
 import { MdOutlineCategory } from 'react-icons/md';
 import { RiMoneyDollarCircleLine } from 'react-icons/ri';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const JobDetails = () => {
-    const {jobType, applicationDeadline, salaryRange, location, company} = useLoaderData();
+    const {_id,jobType, applicationDeadline, salaryRange, location, company} = useLoaderData();
     
     return (
         <div>
@@ -33,7 +33,9 @@ const JobDetails = () => {
         <td>{jobType}</td>
         <td>{location}</td>
         <td>{applicationDeadline}</td>
+        <Link to={`/applyJob/${_id}`}>
         <td className='btn btn-primary'>Apply Now</td>
+        </Link>
       </tr>
     </tbody>
   </table>

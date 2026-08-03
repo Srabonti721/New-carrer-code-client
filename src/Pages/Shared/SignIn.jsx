@@ -2,9 +2,16 @@ import React, { use } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from './SocialLogin';
+import { useLocation, useNavigate } from 'react-router';
 
 const SignIn = () => {
-const {signInUser} = use(AuthContext)
+const {signInUser} = use(AuthContext);
+const location = useLocation();
+const navigate = useNavigate();
+const from = location.state || '/'
+console.log("location form sign in pages",location);
+
+
     const handleSignIn = e =>{
         e.preventDefault();
     const form = e.target;
@@ -22,6 +29,7 @@ const {signInUser} = use(AuthContext)
   showConfirmButton: false,
   timer: 1500
 })
+navigate(from)
 }
     })
     .catch(error=>{
@@ -46,7 +54,7 @@ const {signInUser} = use(AuthContext)
           <div><a className="link link-hover">Forgot password?</a></div>
           <button className="btn btn-neutral mt-4">Sign in</button>
         </form>
-        <SocialLogin/>
+        <SocialLogin from={from}/>
       </div>
     </div>
   </div>
