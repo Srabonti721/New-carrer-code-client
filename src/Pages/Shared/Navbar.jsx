@@ -20,7 +20,13 @@ const Navbar = () => {
             <li>
                 <NavLink to="/">Home</NavLink>
             </li>
+            {
+                users && <>
+                <NavLink to="/myApplications">MyApplications</NavLink>
+                </>
+            }
         </>
+        
     );
     return (
         <div className="navbar bg-base-100 shadow-sm">

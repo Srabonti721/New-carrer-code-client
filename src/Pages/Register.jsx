@@ -1,11 +1,15 @@
 import React, { use } from 'react';
 import { AuthContext } from '../context/AuthProvider'
 import SocialLogin from './Shared/SocialLogin';
+import { useLocation, useNavigate } from 'react-router';
 // import registerLottie  from '../assets/lotties/Register (1).json';
 // import Lottie from 'lottie-react';
 
 const Register = () => {
-    const {createUser} = use(AuthContext)
+    const {createUser} = use(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state || '/'
 
   const handleRegister = e =>{
     e.preventDefault();
@@ -15,9 +19,8 @@ const Register = () => {
   // create users
     createUser(email, password)
     .then(result=>{
-
       console.log(result.user);
-      
+      navigate(from)
     })
     .catch(error=>{
       console.log(error);
