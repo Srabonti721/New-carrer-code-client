@@ -22,7 +22,17 @@ const Navbar = () => {
             </li>
             {
                 users && <>
+                <li>
                 <NavLink to="/myApplications">MyApplications</NavLink>
+                </li>
+                </>
+            }
+            {/* for recruiter . check the roll as well */}
+            {
+                users && <>
+                <li>
+                <NavLink to='/addJob'>Add Job</NavLink>
+                </li>
                 </>
             }
         </>
